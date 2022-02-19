@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+  <meta charset="UTF-8">
+  <title>{{ libs[2] }} - {{ libs[5] }} 第 {{ libs[1] }} 话 - BanguimiFun - 一个番剧弹幕小破站</title>
+  <link href="./static/player/src/css/scojs.css" rel="stylesheet">
+  <link href="./static/player/src/css/colpick.css" rel="stylesheet">
+  <link href="./static/player/src/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="./static/player/src/css/main.css">
+  <!--<link rel="stylesheet" href="../dist/css/danmuplayer.css">-->
+</head>
+<body>
+
+  <h1>{{ libs[5] }} 第 {{ libs[1] }} 话 - {{ libs[2] }}</h1>
+
+<div id="danmup" style="top:0px">
+
+
+</div>
+<div style="display: none">
+  <span class="glyphicon" aria-hidden="true">&#xe072</span>
+  <span class="glyphicon" aria-hidden="true">&#xe073</span>
+  <span class="glyphicon" aria-hidden="true">&#xe242</span>
+  <span class="glyphicon" aria-hidden="true">&#xe115</span>
+  <span class="glyphicon" aria-hidden="true">&#xe111</span>
+  <span class="glyphicon" aria-hidden="true">&#xe096</span>
+  <span class="glyphicon" aria-hidden="true">&#xe097</span>
+</div>
+
+
+</body>
+<script src="./static/player/src/js/jquery-2.1.4.min.js"></script>
+<script src="./static/player/src/js/jquery.shCircleLoader.js"></script>
+<script src="./static/player/src/js/sco.tooltip.js"></script>
+<script src="./static/player/src/js/colpick.js"></script>
+<script src="./static/player/src/js/jquery.danmu.js"></script>
+<script src="./static/player/src/js/main.js"></script>
+<!--<script src="../dist/js/danmuplayer.min.js"></script>-->
+<script>
+  $("#danmup").DanmuPlayer({
+    src:"{{ libs[4] }}",
+    height: "610px", //区域的高度
+    width: "965px" //区域的宽度
+    ,urlToGetDanmu:"./danmu/get?id={{ libs[0] }}&p={{ libs[1] }}"
+    ,urlToPostDanmu:"./danmu/send?id={{ libs[0] }}&p={{ libs[1] }}"
+  });
+
+
+</script>
+</html>
