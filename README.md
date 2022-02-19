@@ -1,7 +1,7 @@
 # banguimi-website
 <h1>人人都能拥有的个人番剧弹幕网站！</h1>
 <p>基于Flask框架实现，目前还正在完善番剧上架的功能，目前如想上架请编辑bgm.db</p>
-**示例demo: <a href="http://101.43.140.188">点我</a><br/>
+**示例demo: <a href="http://101.43.140.188">点我</a><br/><br/><br/>
 ##使用了以下的开源组件：
 
 **DanmuPlayer (//github.com/chiruom/danmuplayer/) - Licensed under the MIT license**
