@@ -106,7 +106,7 @@
         api: './danmu/send/',
         //token: 'tokendemo',
         maximum: 5000,
-        {% if libs[6]  is not None %}
+        {% if not libs[6] %}
         addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid={{ libs[6] }}'],
         {% endif %}
         user: '漆黑深红的爆裂魔法师',
