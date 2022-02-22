@@ -103,6 +103,7 @@ def play():
     main_menu_list = cursor.fetchone()
     allp = main_menu_list[4]
     mtitle = main_menu_list[1]
+    img = main_menu_list[3]
     if p == allp:
         nextp=False
     else:
@@ -112,7 +113,7 @@ def play():
     if libs is None:
         abort(404)
     if USE_NEW_PLAYER:
-        return render_template("new_player.html",libs = libs ,nextp=nextp ,allp=allp,mtitle=mtitle)
+        return render_template("new_player.html",libs = libs ,nextp=nextp ,allp=allp,mtitle=mtitle,img=img)
     else:
         return render_template("player.html",libs = libs)
 
