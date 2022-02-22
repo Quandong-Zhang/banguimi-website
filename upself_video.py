@@ -15,7 +15,7 @@ def main():
     #    d=int(d)
     title=input("标题（番剧名称）：")
     desc=input("简介（不宜太长）：")
-    img=input("主封面图片链接：")
+    img="./static/img/"+input("主封面图片名，文件放在 ./ststic/img/ 下")
     count=int(input("总集数："))
     back_string=input("视频文件后缀名，如 mp4 flv webm 等")
     if d:
