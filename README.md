@@ -1,6 +1,6 @@
 # banguimi-website
 <h1>人人都能拥有的个人番剧弹幕网站！</h1>
-<p>基于Flask框架实现，番剧上架请使用'upself_video.py'</p>
+<p>基于Flask框架实现，番剧上架请使用 upself_video.py</p>
 示例demo: <a href="http://101.43.140.188">点我</a><br/><br/><br/>
 <h2>使用了以下的开源组件：</h2>
 
