@@ -87,20 +87,32 @@ def index():
 @app.route('/list',methods=['GET'])
 def ilist():
     d = request.args.get("id", type=int)
+    cursor.execute("select * from bgmList where id = ?", (d,))
+    mtitle = cursor.fetchone()[1]
     cursor.execute("select * from pList where id = ?", (d,))
     libs = cursor.fetchall()
-    return render_template("detail.html", libs=libs)
+    if len(libs) == 0:
+        abort(404)
+    return render_template("detail.html", libs=libs,mtitle=mtitle)
 
 @app.route('/play',methods=['GET'])
 def play():
     idm = request.args.get("id", type=int)
     p = request.args.get("p", type=int)
+    cursor.execute("select * from bgmList where id = ?", (idm,))
+    main_menu_list = cursor.fetchone()
+    allp = main_menu_list[4]
+    mtitle = main_menu_list[1]
+    if p == allp:
+        nextp=False
+    else:
+        nextp=True
     cursor.execute("select * from pList where id = ? and p = ?", (idm,p,))
     libs = cursor.fetchone()
     if libs is None:
         abort(404)
     if USE_NEW_PLAYER:
-        return render_template("new_player.html",libs = libs)
+        return render_template("new_player.html",libs = libs ,nextp=nextp ,allp=allp,mtitle=mtitle)
     else:
         return render_template("player.html",libs = libs)
 

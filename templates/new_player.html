@@ -6,7 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>{{ libs[2] }} - {{ libs[5] }} 第 {{ libs[1] }} 话 - BanguimiFun - 一个番剧弹幕小破站</title>
+    {% if libs[2] %}
+    <title>{{ libs[2] }} - {{ mtitle }} 第 {{ libs[1] }} 话 - BanguimiFun - 一个番剧弹幕小破站</title>
+    {% else %}
+    <title>{{ mtitle }} 第 {{ libs[1] }} 话 - BanguimiFun - 一个番剧弹幕小破站</title>
+    {% endif %}
 
 
     
@@ -14,7 +18,7 @@
     <!-- Bootstrap core CSS -->
 <link href="./static/bootstrap.min.css" rel="stylesheet">
 <script src="./static/newplayer/flv.min.js"></script>
-<script src="./static/newplayer/dash.all.min.js"></script>
+<!--script src="./static/newplayer/dash.all.min.js"></script-->
 <script src="./static/newplayer/DPlayer.min.js"></script>
 
 
@@ -50,9 +54,6 @@
           <p class="text-muted">作者： bilibili @rerange <br/>双枪会给出答案(</p>
           <p>Made with love by Quandong-Zhang </br>由栋栋用爱制作</p>
           <a href="https://github.com/Quandong-Zhang/banguimi-website">开源项目地址</a>
-          <p>##使用了以下的开源组件：
-            DanmuPlayer (//github.com/chiruom/danmuplayer/) - Licensed under the MIT license DPlayer © DIYgod, Released under the MIT License.
-            Authored and maintained by DIYgod with help from contributors (list). Flask Using BSD 3-Clause "New" or "Revised" License https://github.com/pallets/flask </br>以及一些python标准库</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">联系方式</h4>
@@ -111,38 +112,51 @@
         api: './danmu/send/',
         //token: 'tokendemo',
         maximum: 5000,
-        {% if libs[6] %}
-        //addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid={{ libs[6] }}'],
-        {% endif %}
+        //{% if libs[6] %}
+        //addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid='],
+        //{% endif %}
         user: '漆黑深红的爆裂魔法师',
         bottom: '15%',
         unlimited: true,
     },
     contextmenu: [
         {
-            text: 'back to home',
-            link: './',
+            text: '下载视频',
+            link: '{{ libs[4] }}',
         },
     ],
-    highlight: [
-        {
-            time: 0,
-            text: 'start',
-        },
-    ],
+//    highlight: [
+//        {
+//            time: 0,
+//           text: 'start',
+//       },
+//    ],
 });
 
 </script>
 
 
-<section class="jumbotron text-center">
-  <div class="container">
+<section class="jumbotron text-left">
+  {% if allp==1 %}
+  <h1>{{ mtitle }}</h1>
+  {% elif libs[2] %}
+  <h1>{{ libs[2] }} - {{ mtitle }} 第 {{ libs[1] }} 话</h1>
+  {% else %}
+  <h1>{{ mtitle }} 第 {{ libs[1] }} 话</h1>
+  {% endif %}
+  <!--div class="container"-->
     {%if libs[1]!=1%}
-    <a href="./list?id={{ libs[1]-1 }}" class="navbar-brand d-flex align-items-center">上一集</a>
+    <h1><a href="./play?id={{ libs[0] }}&p={{ libs[1]-1 }}" class="navbar-brand d-flex align-items-center">上一话</a></h1>
     {% endif %}
-    <a href="./list?id={{ libs[0] }}" class="navbar-brand d-flex align-items-center">返回目录</a>
-    <a href="./play?id={{ libs[0] }}&p={{ libs[1]+1 }}" class="navbar-brand d-flex align-items-center">下一集</a>
-  </div>
+    {% if allp==1 %}
+    <h1><a href="./" class="navbar-brand d-flex align-items-center">返回主页</a></h1>
+    {% else %}
+    <h1><a href="./list?id={{ libs[0] }}" class="navbar-brand d-flex align-items-center">返回目录</a></h1>
+    {% endif %}
+    {% if nextp %}
+    <h1><a href="./play?id={{ libs[0] }}&p={{ libs[1]+1 }}" class="navbar-brand d-flex align-items-center">下一话</a></h1>
+    {% endif %}
+  <!--/div-->
 </section>
 
 <footer class="text-muted">
