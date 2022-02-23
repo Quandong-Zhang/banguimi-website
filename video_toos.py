@@ -16,5 +16,5 @@ if __name__=="__main__":
     #flv2mp4(1, 1)
     #print(get_video_url_path("1"))
     d = input("id?")
-    for n in range(1,int(input("共几集？"))):
+    for n in range(1,int(input("共几集？"))+1):
         flv2mp4(get_flv_url_path(d+"/"+str(n)), get_mp4_url_path(d+"/"+str(n)))
