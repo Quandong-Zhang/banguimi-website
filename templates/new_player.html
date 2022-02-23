@@ -98,7 +98,11 @@
     mutex: true,
     video: {
         url: '{{ libs[4] }}',
+        //{% if libs[3] %}
+        pic: '{{ libs[3] }}',
+        //{% else %}
         pic: '{{ img }}',
+        //{% endif %}
         //thumbnails: 'thumbnails.jpg',
         type: 'auto',
     },
