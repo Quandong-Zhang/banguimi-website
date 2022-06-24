@@ -2,7 +2,7 @@
 <h1>人人都能拥有的个人番剧弹幕网站！</h1>
 <p>基于Flask框架实现，番剧上架请使用 upself_video.py</p>
 <s>视频教程：咕咕咕</s></br></br>
-示例demo: <a href="http://bgmfun.space">点我</a><br/><br/><br/>
+<s>示例demo: <a href="http://bgmfun.space">点我</a></s>(废了)<br/><br/><br/>
 <h2>使用了以下的开源组件：</h2>
 
 ~~~
